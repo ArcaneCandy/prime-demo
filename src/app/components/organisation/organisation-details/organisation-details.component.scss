@@ -1,0 +1,31 @@
+.organisation-details-form {
+  padding: 0.5rem;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    .title {
+      font-weight: bold;
+      padding-bottom: 0.5rem;
+    }
+
+    .contents {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+
+      .form-control {
+        display: flex;
+        flex-direction: column;
+        border: none;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+}

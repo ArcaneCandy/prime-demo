@@ -1,0 +1,982 @@
+@import 'variables.scss';
+
+@font-face {
+  font-family: 'euclid';
+  src: url('../src/assets/fonts/Euclid\ Circular\ A\ Regular.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('../src/assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+body {
+  margin: 0rem;
+}
+
+.text {
+  color: $bw-text-bold;
+  font-family: euclid;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1rem;
+
+  &.light {
+    color: $bw-text-light;
+  }
+
+  &.normal {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.125rem;
+  }
+
+  &.small {
+    color: $bw-text-small;
+    font-size: 0.75rem;
+
+    &.light {
+      color: $bw-text-small-light;
+    }
+
+    &.bold {
+      color: $bw-text-normal-bold;
+    }
+  }
+
+  &.bold-small {
+    font-weight: 700;
+    color: $bw-text-dark;
+  }
+
+  &.large-bold {
+    color: $bw-text-normal-bold;
+    font-weight: 700;
+
+    &.high {
+      font-size: 0.9375rem;
+      line-height: 1.25rem;
+
+      &.red {
+        color: $bw-error-message-color;
+      }
+    }
+  }
+
+  &.bold {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+
+    &.dark {
+      color: $bw-text-dark;
+    }
+
+    &.title {
+      color: $bw-text-title;
+      font-size: 1.3125rem;
+      letter-spacing: -0.105px;
+      font-weight: 600;
+      height: 1.5rem;
+    }
+
+    &.red {
+      color: $bw-error-message-color;
+    }
+
+    &.green {
+      color: $bw-accordion-positive-color;
+    }
+
+    &.heavy {
+      color: $bw-text-title;
+      font-weight: 700;
+
+      &.primary {
+        color: $bw-color-primary;
+      }
+    }
+
+    &.disabled {
+      color: $bw-text-disabled;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.0063rem;
+
+      &.summary {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &.error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: $bw-error-message-color;
+  }
+
+  &.primary {
+    color: $bw-color-primary;
+  }
+}
+
+.text-required-with-asterisk::before {
+  content: ' * ';
+  color: $bw-error-message-color;
+}
+
+.text-normal {
+  color: $bw-text-title;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-family: inter;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.0625rem;
+
+  &.bold {
+    font-weight: 600;
+  }
+
+  &.title {
+    color: $bw-title-color;
+    font-weight: 700;
+    font-size: 2.1875rem;
+    line-height: 2.625rem;
+  }
+
+  &.subtitle {
+    color: $bw-text-bold;
+    font-size: 1.0938rem;
+    line-height: 1.6438rem;
+  }
+
+  &.large {
+    color: $bw-text-normal-bold;
+    font-weight: 500;
+  }
+
+  &.large-bold {
+    color: $bw-text-normal-bold;
+    font-weight: 700;
+
+    &.high {
+      font-size: 0.9375rem;
+      line-height: 1.25rem;
+
+      &.red {
+        color: $bw-error-message-color;
+      }
+    }
+  }
+
+  &.light {
+    color: $bw-text-small-light;
+  }
+
+  &.small {
+    color: $bw-text-small;
+    font-size: 0.75rem;
+
+    &.light {
+      color: $bw-text-small-light;
+    }
+
+    &.bold {
+      color: $bw-text-normal-bold;
+    }
+  }
+
+  &.error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: $bw-error-message-color;
+  }
+
+  &.primary {
+    color: $bw-color-primary;
+  }
+}
+
+.table-height {
+  max-height: 60vh;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-grow: 1;
+  width: 0;
+}
+
+.p-input-icon-left {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.dialog-content-height {
+  height: 70vh;
+}
+
+.on-copy-id-clicked:active {
+  outline: 0 none;
+  outline-offset: 1;
+  box-shadow: 0 0 0 0.2rem rgba(114, 129, 255, 0.5);
+  border-color: $bw-color-primary;
+}
+
+.link-icon-rotated {
+  transform: rotate(45.288deg);
+}
+
+.copy-to-clipboard {
+  color: $bw-color-primary;
+}
+
+.min-height {
+  min-height: 60vh;
+}
+
+.p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 1;
+  box-shadow: 0 0 0 0.2rem rgba(114, 129, 255, 0.5);
+  border-color: $bw-color-primary;
+}
+
+.p-messages .p-component {
+  display: none;
+}
+
+.table-header {
+  background-color: $bw-table-header-color;
+  border-right: 0.0625rem solid $dialog-border-color;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.icon-color-primary {
+  color: $bw-color-primary;
+  &.large {
+    font-size: 120%;
+  }
+}
+.icon-color-active {
+  color: $bw-text-small;
+}
+
+.container {
+  padding: 1.5rem 4rem 4rem 21.5rem;
+}
+
+.container-without-sidebar {
+  padding: 4rem;
+}
+
+.container-rounded {
+  border-radius: 1.25rem;
+  border: 0.0625rem solid $bw-sidebar-item-border-color;
+
+  &.shaded {
+    background: $bw-sidebar-shaded-container-bg-color;
+  }
+}
+
+.show-on-focus {
+  display: none;
+}
+.searchtext:focus + .show-on-focus {
+  display: block;
+}
+
+//Status color classes
+.OPEN {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-open;
+}
+
+.PAID {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-open;
+}
+
+.PENDING {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-pending;
+}
+
+.CLOSED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-closed;
+}
+
+.DRAFT {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-draft;
+}
+
+.FAILED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-failed;
+}
+
+.CANCELLED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-canceled;
+}
+
+.UNKNOWN {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-unknown;
+}
+
+.INITIATED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-initiated;
+}
+
+.HISTORICAL {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-historical;
+}
+
+.UNASSIGNED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-unassigned;
+}
+
+//Todo statuses
+
+.PAYMENT_FAILED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-failed;
+}
+
+.COMMENT {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-open;
+}
+
+.MENTION {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-pending;
+}
+
+.TRANSACTION_DETECTED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-unknown;
+}
+
+.RESOLVE {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-initiated;
+}
+
+.CLOSE {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-closed;
+}
+
+.MARK_AS_PREPAYMENT {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-prepayment;
+}
+
+.MARK_AS_MISC {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-misc;
+}
+
+.FUNDS_TRANSFER {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-funds-transfer;
+}
+
+.OVERDUE {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-draft;
+}
+
+.FAILED_TO_SYNC {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-failed;
+}
+
+.RETRY_SYNC {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-closed;
+}
+
+.PAYMENT {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-payment;
+}
+
+.PREPAYMENT {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-prepayment;
+}
+
+.CORRECTION {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-correction;
+}
+
+.TRANSACTION {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-transaction;
+}
+
+.INCOMING {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-incoming;
+}
+
+.OUTGOING {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-outgoing;
+}
+
+.INVOICE {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-incoming;
+}
+
+.BILL {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-outgoing;
+}
+
+.ACTIVE {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-open;
+}
+
+.NOT_ACTIVE,
+.INACTIVE {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-closed;
+}
+
+.DEPOSIT {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-misc;
+}
+
+.ACTIVATED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-activated;
+}
+
+.DEACTIVATED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-deactivated;
+}
+
+.DISCONNECTED {
+  padding: 0.3rem;
+  border-radius: 0.3125rem;
+  background-color: $bw-status-disconnected;
+}
+
+.action-button {
+  border: 0.0625rem solid $bw-sidebar-item-border-color;
+  cursor: pointer;
+  border-radius: $action-button-border-radius;
+}
+
+.action-button:not(:hover) {
+  background: $bw-action-button-bg;
+}
+
+.action-button:hover {
+  background: $bw-action-button-bg;
+}
+
+.items-selected-indicator {
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  color: $bw-button-text-color;
+  border-radius: $selection-indicator-border-radius;
+  background-color: $bw-color-primary;
+}
+
+.selection-results-container {
+  border-radius: $selection-results-container-border-radius;
+  background-color: $bw-selected-results-container-bg;
+}
+
+.hoverable-row:hover .hoverable-row-actions {
+  display: block;
+}
+
+.hoverable-row-actions {
+  position: absolute;
+  margin-top: 0.875rem;
+  right: +3rem;
+  padding-right: 0.25rem;
+  background-color: $bw-breadcrumb-bg-color;
+  display: none;
+
+  &.no-padding {
+    margin: -0.5rem !important;
+  }
+}
+
+.p-highlight .p-checkbox .p-checkbox-box {
+  border-color: $bw-checkbox-border-color;
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: $bw-color-primary;
+}
+
+.p-datatable .p-datatable-tbody .table-cell {
+  height: 3.75rem;
+}
+
+.p-datatable-table {
+  position: relative;
+}
+
+.p-column-filter-menu-button.p-column-filter-menu-button-active {
+  background-color: $bw-table-header-color !important;
+  color: $bw-color-primary;
+}
+
+.p-datatable .p-datatable-header {
+  background: $bw-table-header-color;
+}
+
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+  background: $bw-selected-row-background-color;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 0.5rem 0.5rem;
+}
+
+.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+  color: $bw-color-primary;
+}
+
+.p-datatable .p-sortable-column .p-sortable-column-icon {
+  margin-left: 0;
+}
+
+.p-dock {
+  z-index: 1000;
+}
+
+.p-dock .p-dock-list-container {
+  padding: 0;
+}
+
+.p-dock .p-dock-link {
+  height: 2rem;
+  width: 2rem;
+}
+
+.p-dock-left {
+  left: 0;
+  top: 0;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-top: 20vh;
+}
+
+.p-progress-spinner-circle {
+  stroke: $bw-chart-button-color !important;
+}
+
+.p-component-overlay {
+  background-color: rgba(184, 184, 184, 0.1);
+}
+
+.p-dialog.p-confirm-dialog .p-confirm-dialog-message {
+  white-space: pre-wrap;
+}
+
+.p-accordion .p-accordion-header-link {
+  background: $bw-breadcrumb-bg-color;
+  border-radius: 1.25rem;
+}
+
+.p-accordion
+  .p-accordion-header:not(.p-disabled).p-highlight
+  .p-accordion-header-link {
+  border-top-right-radius: 1.25rem;
+  border-top-left-radius: 1.25rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom: none;
+}
+
+.p-accordion
+  p-accordiontab:not(:first-child)
+  .p-accordion-header
+  .p-accordion-header-link {
+  border-top: 1px solid $bw-first-marker-background-color;
+}
+
+.p-accordion .p-accordion-content {
+  border-bottom-right-radius: 1.25rem;
+  border-bottom-left-radius: 1.25rem;
+}
+
+.p-dialog {
+  border-radius: $dialog-border-radius;
+  .p-dialog-header {
+    border-bottom: none;
+    border-top-right-radius: $dialog-border-radius;
+    border-top-left-radius: $dialog-border-radius;
+  }
+
+  .p-dialog-content {
+    padding: 1rem;
+  }
+  .p-dialog-content:last-of-type {
+    border-bottom-right-radius: $dialog-border-radius;
+    border-bottom-left-radius: $dialog-border-radius;
+  }
+
+  .p-dialog-footer {
+    border-bottom-right-radius: $dialog-border-radius;
+    border-bottom-left-radius: $dialog-border-radius;
+  }
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: $bw-color-primary;
+  background: $bw-color-primary;
+}
+
+.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+  box-shadow: none;
+}
+
+.p-card .p-card-body {
+  padding: 0;
+}
+
+.p-column-filter-overlay-menu {
+  min-width: 15rem;
+}
+
+.p-column-filter-overlay-menu .p-column-filter-buttonbar {
+  padding: 0 !important;
+}
+
+.p-sidebar {
+  background: $bw-sidebar-bg-color;
+  border-color: $bw-sidebar-border-color;
+  width: 17.5rem;
+}
+
+.p-orderlist .p-orderlist-list-container {
+  border: none;
+}
+
+.p-breadcrumb {
+  border: none;
+  width: fit-content;
+  background: $bw-breadcrumb-bg-color;
+  padding: 1rem 0.2rem 1rem 0.2rem;
+
+  .p-menuitem-link .p-menuitem-icon {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $bw-text-bold !important;
+  }
+}
+
+.p-button {
+  background-color: $bw-color-primary;
+  color: $bw-button-text-color;
+  height: 2.5rem;
+  padding: 0rem 1.25rem;
+  font-weight: 700;
+  border-radius: 0.375rem;
+  border: 0.0625rem solid $bw-button-border-color;
+
+  &.p-button-secondary {
+    background-color: $bw-sidebar-bg-color;
+    color: $bw-text-title;
+  }
+
+  &.p-select-button {
+    border: none;
+    border-radius: 0;
+    background-color: $bw-breadcrumb-bg-color;
+    color: $bw-text-title;
+
+    &.highlight {
+      background-color: $bw-select-button-higlight !important;
+    }
+  }
+
+  &.p-button-outlined-small {
+    height: 2rem;
+    padding: 1rem;
+    background-color: $bw-sidebar-bg-color;
+    color: $bw-text-title;
+    border: 0.0625rem solid $bw-sidebar-item-border-color;
+    &.primary {
+      color: $bw-color-primary;
+    }
+  }
+
+  &.p-button-text {
+    background-color: $bw-sidebar-bg-color;
+    color: $bw-text-small;
+    font-weight: 600;
+    border: none;
+  }
+}
+
+.p-buttonset .p-button:first-of-type:not(:only-of-type) {
+  background-color: $bw-sidebar-bg-color !important;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  &.p-highlight {
+    background-color: $bw-select-button-higlight !important;
+  }
+}
+
+.p-buttonset .p-button:not(:first-of-type):not(:last-of-type) {
+  background-color: $bw-sidebar-bg-color !important;
+  border-radius: 0;
+
+  &.p-highlight {
+    background-color: $bw-select-button-higlight !important;
+  }
+}
+
+.p-buttonset .p-button:last-of-type:not(:only-of-type) {
+  background-color: $bw-sidebar-bg-color !important;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  &.p-highlight {
+    background-color: $bw-select-button-higlight !important;
+  }
+}
+
+.action-button-focus {
+  .action-button {
+    color: $bw-color-primary;
+    background-color: $bw-status-historical;
+  }
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: $bw-color-primary;
+  background: $bw-color-primary;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight,
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: $bw-sidebar-shaded-container-bg-color;
+  color: $bw-text-normal-bold;
+  font-family: euclid;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  display: flex;
+
+  .p-highlight {
+    display: flex;
+    background: none;
+  }
+  .p-icon {
+    color: $bw-text-normal-bold;
+  }
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+  color: $bw-text-title;
+  background: $bw-sidebar-bg-color;
+}
+
+.p-column-filter-menu-button.p-column-filter-menu-button-active {
+  background: $bw-color-primary;
+}
+
+.p-avatar img {
+  height: auto;
+  width: auto;
+}
+
+.p-orderlist-controls {
+  display: none;
+}
+
+.p-orderlist .p-orderlist-list .p-orderlist-item.p-highlight {
+  color: $bw-text-title;
+  background: $bw-breadcrumb-bg-color;
+}
+
+.p-orderlist .p-orderlist-filter-container {
+  padding: 0 0 1rem;
+  border: none;
+}
+
+.p-orderlist .p-orderlist-list {
+  border-top: none;
+}
+
+.p-orderlist-item:not(.cdk-drag-disabled) {
+  cursor: move;
+  z-index: 1130 !important;
+}
+
+.p-badge {
+  background-color: $badge-background-color;
+  border-radius: 0.3rem;
+  min-width: 1.35rem;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  padding: 0 0.25rem;
+}
+
+.p-scroller {
+  min-height: 60vh;
+}
+
+.p-breadcrumb
+  .p-breadcrumb-list
+  li:not(:last-child)
+  .p-menuitem-link
+  .p-menuitem-text {
+  color: $bw-color-primary;
+}
+
+.p-chip {
+  border-radius: 0.75rem;
+  background-color: $chip-background-color;
+}
+
+.p-chip-view-all {
+  background-color: $chip-view-all-background-color;
+}
+
+.p-inputswitch-checked .p-inputswitch-slider {
+  background-color: $bw-color-primary;
+}
+
+.p-inputswitch .p-inputswitch-slider {
+  transition: none;
+}
+
+.p-inputswitch .p-inputswitch-slider:before {
+  transition-duration: 0s;
+  background: $bw-action-button-bg;
+  width: 0.75rem;
+  height: 0.75rem;
+  left: 0.25rem;
+  border-radius: 0.25rem;
+  margin-top: 0rem;
+}
+
+.p-inputswitch-slider:before {
+  position: absolute;
+  content: '';
+  top: 10%;
+}
+
+.p-inputswitch {
+  width: 2.5rem;
+  height: 1rem;
+}
+
+.p-timeline-event-opposite,
+.p-timeline-event-content {
+  min-width: 3.5rem;
+}
+
+.p-timeline.p-timeline-horizontal .p-timeline-event-opposite,
+.p-timeline.p-timeline-horizontal .p-timeline-event-content {
+  padding: 0.5rem 0;
+}
+
+.form-multiselect .p-multiselect .p-multiselect-label {
+  padding: 0.075rem 0.75rem !important;
+}
+
+.break-word {
+  word-break: break-word;
+}
+
+.form-multiselect .p-multiselect .p-multiselect-label {
+  padding: 0.075rem 0.75rem !important;
+}

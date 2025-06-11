@@ -1,0 +1,6 @@
+@import '../../../variables.scss';
+
+.selected-sum {
+  background-color: $bw-selected-results-container-bg;
+  border-top: 1px solid $bw-results-border-color;
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "ph ph-qr-code",
+    "text": "Dashboard",
+    "navigatesTo": "/dashboard"
+  },
+  {
+    "icon": "ph ph-bank",
+    "text": "Banking",
+    "navigatesTo": "/banking"
+  },
+  {
+    "icon": "ph ph-list-checks",
+    "text": "Approvals"
+  },
+  {
+    "icon": "ph ph-chart-line-up",
+    "text": "Revenue"
+  },
+  {
+    "icon": "ph ph-receipt",
+    "text": "Expenses"
+  },
+  {
+    "icon": "ph ph-swap",
+    "text": "Cash Flow Hub"
+  },
+  {
+    "icon": "ph ph-cpu",
+    "text": "Intelligence"
+  }
+]

@@ -1,0 +1,188 @@
+<p-columnFilter
+  #columnFilter
+  [id]="parentComponent"
+  [field]="columnData.field"
+  display="menu"
+  [showMatchModes]="false"
+  [showOperator]="false"
+  [showAddButton]="false"
+  [showClearButton]="false"
+  [showApplyButton]="false"
+  [hideOnClear]="true">
+  <ng-template pTemplate="filterTemplate" let-value let-filter="filterCallback">
+    <span class="flex flex-column gap-4">
+      <span class="flex text flex-column gap-2">
+        <label>
+          {{
+            'APPLICATION.CUSTOM_COLUMN_FILTER.CHOOSE_OPERATOR_LABEL' | translate
+          }}
+        </label>
+        <p-dropdown [(ngModel)]="filterSelectedValue" [options]="filterModes">
+          <ng-template let-option pTemplate="item">
+            <span class="text">
+              {{ option | escapeUnderscore }}
+            </span>
+          </ng-template>
+          <ng-template pTemplate="selectedItem" let-selectedOption>
+            <span class="text">
+              {{ selectedOption | escapeUnderscore }}
+            </span>
+          </ng-template>
+        </p-dropdown>
+      </span>
+      <span class="flex flex-column gap-2 text">
+        @if (
+          filterSelectedValue !== filterOperators.NOT_EMPTY &&
+          filterSelectedValue !== filterOperators.EMPTY
+        ) {
+          <label>
+            {{
+              'APPLICATION.CUSTOM_COLUMN_FILTER.INSERT_VALUE_LABEL' | translate
+            }}
+          </label>
+        }
+
+        @if (
+          filterSelectedValue === filterOperators.NOT_EMPTY ||
+          filterSelectedValue === filterOperators.EMPTY
+        ) {
+        } @else if (columnData.type === filterTypes.DATE) {
+          <p-calendar
+            [(ngModel)]="dateInput"
+            dateFormat="dd/mm/yy"
+            (keyup.enter)="
+              dateInput &&
+                ((filterSelectedValue !== filterOperators.BETWEEN &&
+                  filterSelectedValue !== filterOperators.NOT_BETWEEN) ||
+                  ((filterSelectedValue === filterOperators.BETWEEN ||
+                    filterSelectedValue === filterOperators.NOT_BETWEEN) &&
+                    secondDateInput)) &&
+                onApplyClicked(columnData.field, columnFilter)
+            "></p-calendar>
+        } @else if (columnData.type === filterTypes.NUMERIC) {
+          <input
+            pInputText
+            inputmode="numeric"
+            type="number"
+            class="text"
+            [(ngModel)]="filterInput"
+            (keyup.enter)="
+              filterInput &&
+                ((filterSelectedValue !== filterOperators.BETWEEN &&
+                  filterSelectedValue !== filterOperators.NOT_BETWEEN) ||
+                  ((filterSelectedValue === filterOperators.BETWEEN ||
+                    filterSelectedValue === filterOperators.NOT_BETWEEN) &&
+                    secondFilterInput)) &&
+                onApplyClicked(columnData.field, columnFilter)
+            " />
+        } @else if (columnData.type === filterTypes.BOOLEAN) {
+          <p-dropdown
+            [options]="customFilterValues"
+            [(ngModel)]="filterInput"
+            styleClass="p-2"
+            (keyup.enter)="
+              filterInput && onApplyClicked(columnData.field, columnFilter)
+            ">
+            <ng-template let-option pTemplate="item">
+              <span class="text">
+                {{ option | titlecase }}
+              </span>
+            </ng-template>
+            <ng-template pTemplate="selectedItem" let-selectedOption>
+              <div class="text">
+                {{ selectedOption | titlecase }}
+              </div>
+            </ng-template>
+          </p-dropdown>
+        } @else if (columnData.type === filterTypes.ENUM) {
+          <p-multiSelect
+            [(ngModel)]="filterInput"
+            [options]="customFilterValues"
+            styleClass="p-2">
+            <ng-template let-option pTemplate="item">
+              <div class="flex align-items-center gap-2">
+                <div [class]="option" class="text">
+                  {{ option | titlecase }}
+                </div>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="selectedItems">
+              <div class="flex flex-row gap-2 flex-wrap">
+                @for (item of filterInput; track item) {
+                  <div [class]="item" class="text">
+                    {{ item | titlecase }}
+                  </div>
+                }
+              </div>
+            </ng-template>
+          </p-multiSelect>
+        } @else {
+          <input
+            pInputText
+            [(ngModel)]="filterInput"
+            type="text"
+            class="text"
+            (keyup.enter)="
+              filterInput && onApplyClicked(columnData.field, columnFilter)
+            " />
+        }
+
+        @if (
+          filterSelectedValue === filterOperators.BETWEEN ||
+          filterSelectedValue === filterOperators.NOT_BETWEEN
+        ) {
+          @if (columnData.type === filterTypes.DATE) {
+            <p-calendar
+              [(ngModel)]="secondDateInput"
+              dateFormat="dd/mm/yy"
+              (keyup.enter)="
+                dateInput &&
+                  secondDateInput &&
+                  onApplyClicked(columnData.field, columnFilter)
+              "></p-calendar>
+          } @else if (columnData.type === filterTypes.NUMERIC) {
+            <input
+              class="text"
+              pInputText
+              type="number"
+              inputmode="numeric"
+              [(ngModel)]="secondFilterInput"
+              (keyup.enter)="
+                filterInput &&
+                  secondFilterInput &&
+                  onApplyClicked(columnData.field, columnFilter)
+              " />
+          }
+        }
+      </span>
+      <div class="flex flex-row justify-content-between">
+        <p-button
+          [label]="'APPLICATION.BUTTONS.CLEAR' | translate"
+          id="APPLICATION.FILTER.CLEAR_BUTTON_LABEL"
+          styleClass="p-button p-button-secondary text"
+          (click)="onClearClicked(columnData.field, columnFilter)"></p-button>
+        <p-button
+          [disabled]="
+            filterSelectedValue &&
+            filterSelectedValue !== filterOperators.EMPTY &&
+            filterSelectedValue !== filterOperators.NOT_EMPTY &&
+            ((columnData.type === filterTypes.DATE &&
+              (filterSelectedValue === filterOperators.BETWEEN ||
+                filterSelectedValue === filterOperators.NOT_BETWEEN) &&
+              !secondDateInput) ||
+              (columnData.type === filterTypes.NUMERIC &&
+                (filterSelectedValue === filterOperators.BETWEEN ||
+                  filterSelectedValue === filterOperators.NOT_BETWEEN) &&
+                !secondFilterInput) ||
+              (columnData.type === filterTypes.DATE
+                ? !dateInput
+                : !filterInput || (filterInput && filterInput.length === 0)))
+          "
+          [label]="'APPLICATION.BUTTONS.SAVE' | translate"
+          id="APPLICATION.BUTTONS.SAVE"
+          styleClass="text"
+          (click)="onApplyClicked(columnData.field, columnFilter)"></p-button>
+      </div>
+    </span>
+  </ng-template>
+</p-columnFilter>

@@ -1,0 +1,106 @@
+<p-sidebar
+  [(visible)]="isSidebarVisible"
+  [closeOnEscape]="false"
+  [blockScroll]="false"
+  [modal]="false"
+  [transitionOptions]="'0ms'"
+  (visibleChange)="onVisibleChange($event)">
+  <ng-template pTemplate="closeicon">
+    <i id="APPLICATION.SIDEBAR_CLOSE_BUTTON" class="pi pi-arrow-left"></i>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <span class="inline-flex align-items-center gap-2">
+      <a
+        (click)="onNavigateToHomeClicked()"
+        id="APPLICATION.SIDEBAR_NAVIGATE_TO_HOME_BUTTON">
+        <img
+          src="../../../assets/images/bw_logo.png"
+          alt="logo-img"
+          class="logo" />
+      </a>
+      <span class="text bold dark"> {{ companyName }} </span>
+    </span>
+  </ng-template>
+  <div class="flex flex-column h-full pt-3">
+    <div class="flex flex-column gap-4 content overflow-y-auto">
+      <ul class="list-none">
+        @for (item of sidebarMenuItems; track item) {
+          <li
+            [ngClass]="
+              item.navigatesTo === currentUrl ||
+              item.navigatesTo === currentMainNavigationSegmentRoute
+                ? 'pt-1 pl-3 surface-200 border-round-md'
+                : 'pt-1 pl-3'
+            ">
+            <a
+              [id]="'APPLICATION.SIDEBAR.' + item.text | titlecase"
+              [routerLink]="item.navigatesTo ? [item.navigatesTo] : null"
+              pRipple
+              class="flex align-items-center cursor-pointer p-2 border-round text-700 transition-colors p-ripple relative"
+              [ngClass]="{
+                'opacity-50 pointer-events-none': !item.navigatesTo,
+              }">
+              <i [class]="item.icon"></i>
+              <span class="pl-2 text bold">{{ item.text }}</span>
+              @if (!item.navigatesTo) {
+                <i class="ph ph-hammer ml-auto"></i>
+              }
+            </a>
+          </li>
+        } @empty {
+          {{ 'APPLICATION.SIDEBAR.ERROR_MESSAGE' | translate }}
+        }
+      </ul>
+      @if (settingsSidebarMenuItems.length > 0) {
+        <ul>
+          <li>
+            <div
+              pRipple
+              pStyleClass="@next"
+              enterClass="hidden"
+              enterActiveClass="slidedown"
+              leaveToClass="hidden"
+              leaveActiveClass="slideup"
+              class="p-3 flex align-items-center justify-content-between text-700 cursor-pointer p-ripple font-medium">
+              {{ 'APPLICATION.SIDEBAR.SETTINGS_SUBMENU' | translate }}
+              <i class="ph ph-caret-down"></i>
+            </div>
+            <ul class="overflow-hidden list-none">
+              @for (item of settingsSidebarMenuItems; track item) {
+                <li
+                  [ngClass]="
+                    item.navigatesTo === currentUrl ||
+                    item.navigatesTo === currentMainNavigationSegmentRoute
+                      ? 'pt-1 pl-3 surface-200 border-round-md'
+                      : 'pt-1 pl-3'
+                  ">
+                  <a
+                    [id]="'APPLICATION.SIDEBAR.' + item.text | titlecase"
+                    [routerLink]="item.navigatesTo ? [item.navigatesTo] : null"
+                    pRipple
+                    class="flex align-items-center cursor-pointer p-2 border-round text-700 transition-colors p-ripple relative"
+                    [ngClass]="{
+                      'opacity-50 pointer-events-none': !item.navigatesTo,
+                    }">
+                    <i [class]="item.icon"></i>
+                    <span class="pl-2 text bold">{{ item.text }}</span>
+                    @if (!item.navigatesTo) {
+                      <i class="ph ph-hammer ml-auto"></i>
+                    }
+                  </a>
+                </li>
+              } @empty {
+                {{ 'APPLICATION.SIDEBAR.ERROR_MESSAGE' | translate }}
+              }
+            </ul>
+          </li>
+        </ul>
+      }
+    </div>
+  </div>
+</p-sidebar>
+
+@if (!isSidebarVisible) {
+  <app-dock-menu
+    (isSidebarVisibilityChanged)="isSidebarVisible = true"></app-dock-menu>
+}

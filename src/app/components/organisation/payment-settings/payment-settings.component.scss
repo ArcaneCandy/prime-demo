@@ -1,0 +1,25 @@
+.payment-settings-form {
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem 1.5rem;
+    min-height: 20rem;
+
+    @media (max-width: 90rem) {
+      flex-wrap: wrap;
+    }
+
+    .form-control {
+      max-width: 16rem;
+      display: flex;
+      flex-direction: column;
+      border: none;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+}

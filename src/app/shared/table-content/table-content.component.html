@@ -1,0 +1,18 @@
+<div class="text flex">
+  @if (column.type === 'date') {
+    {{ data[column.field] | date: 'dd/MM/yyyy' }}
+  } @else if (column.type === 'numeric') {
+    {{ data[column.field] | number: '1.2-2' }}
+  } @else if (column.type === 'enum') {
+    <span [class]="data[column.field]">
+      {{ data[column.field] | titlecase }}
+    </span>
+  } @else if (column.type === 'boolean') {
+    {{ data[column.field] | booleanTranslate }}
+  } @else {
+    <span
+      class="text-ellipsis"
+      copyToClipboard
+      [innerHTML]="data[column.field] | truncateUuid"></span>
+  }
+</div>

@@ -1,0 +1,170 @@
+[
+  {
+    "field": "id",
+    "header": "ID",
+    "is_selected": true,
+    "type": "text"
+  },
+  {
+    "field": "payment_status",
+    "header": "Status",
+    "is_selected": true,
+    "type": "enum"
+  },
+  {
+    "field": "direction",
+    "header": "Direction",
+    "is_selected": true,
+    "type": "enum"
+  },
+  {
+    "field": "type",
+    "header": "Type",
+    "is_selected": false,
+    "type": "enum"
+  },
+  {
+    "field": "description",
+    "header": "Description",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "reference_number",
+    "header": "Reference Number",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "external_reference_number",
+    "header": "External Reference Number",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "counterparty_name",
+    "header": "Counterparty Name",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "cash_account",
+    "header": "Cash Account",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "financial_period",
+    "header": "Financial Period",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "payment_method",
+    "header": "Payment Method",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "amount",
+    "header": "Amount",
+    "is_selected": true,
+    "type": "numeric"
+  },
+  {
+    "field": "adjustment",
+    "header": "Adjustment",
+    "is_selected": false,
+    "type": "numeric"
+  },
+  {
+    "field": "balance",
+    "header": "Balance",
+    "is_selected": true,
+    "type": "numeric"
+  },
+  {
+    "field": "currency",
+    "header": "Currency",
+    "is_selected": true,
+    "type": "text"
+  },
+  {
+    "field": "date",
+    "header": "Date",
+    "is_selected": false,
+    "type": "date"
+  },
+  {
+    "field": "posted_date",
+    "header": "Posted Date",
+    "is_selected": false,
+    "type": "date"
+  },
+  {
+    "field": "end_to_end_id",
+    "header": "End to end ID",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "from_name",
+    "header": "From Company",
+    "is_selected": true,
+    "type": "text"
+  },
+  {
+    "field": "to_name",
+    "header": "To Company",
+    "is_selected": true,
+    "type": "text"
+  },
+  {
+    "field": "owned_account_name",
+    "header": "Owned account name",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "from_account",
+    "header": "From Account",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "to_account",
+    "header": "To Account",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "parent_owner_id",
+    "header": "Parent Owner ID",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "transaction_information_provider",
+    "header": "Transaction Information Provider",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "transaction_initiation_provider",
+    "header": "Transaction Initiation Provider",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "previous_state_id",
+    "header": "Previous ID",
+    "is_selected": false,
+    "type": "text"
+  },
+  {
+    "field": "bank_name",
+    "header": "Bank Name",
+    "is_selected": false,
+    "type": "enum"
+  }
+]

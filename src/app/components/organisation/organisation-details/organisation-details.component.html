@@ -1,0 +1,90 @@
+<section class="organisation-details-form">
+  <form [formGroup]="organisationDetailsForm">
+    <ng-container *ngFor="let groupName of distinctGroupNames">
+      <div
+        *ngIf="getControlsByGroupName(groupName).length > 0"
+        class="form-group">
+        <div class="title">{{ groupName | titlecase }}</div>
+        <div class="contents">
+          <div *ngFor="let control of getControlsByGroupName(groupName)">
+            <div *ngIf="control.type === 'text'; else checkboxInputBlock">
+              <span class="form-control">
+                <label
+                  for="{{ control.name }}"
+                  class="text-required-with-asterisk"
+                  >{{ control.title }}</label
+                >
+                <input
+                  type="text"
+                  pInputText
+                  id="{{ control.name }}"
+                  formControlName="{{ control.name }}" />
+                <div *ngIf="isControlInvalid(control.name)">
+                  <div
+                    class="p-error block form-text custom-invalid-feedback"
+                    *ngIf="
+                      organisationDetailsForm.get(control.name)?.touched &&
+                      organisationDetailsForm
+                        .get(control.name)
+                        ?.hasError('required')
+                    ">
+                    {{ control.title }} is required.
+                  </div>
+                  <div
+                    class="p-error block form-text custom-invalid-feedback"
+                    *ngIf="
+                      organisationDetailsForm.get(control.name)?.touched &&
+                      organisationDetailsForm
+                        .get(control.name)
+                        ?.hasError('email')
+                    ">
+                    Please enter a valid email for
+                    {{ control.title | lowercase }}.
+                  </div>
+                </div>
+              </span>
+            </div>
+            <ng-template #checkboxInputBlock>
+              <span class="form-control">
+                <label
+                  for="{{ control.name }}"
+                  class="text-required-with-asterisk"
+                  >{{ control.title }}</label
+                >
+                <p-checkbox
+                  formControlName="{{ control.name }}"
+                  [binary]="true"
+                  inputId="binary"
+                  id="{{ control.name }}"></p-checkbox>
+                <div *ngIf="isControlInvalid(control.name)">
+                  <div
+                    class="p-error block form-text custom-invalid-feedback"
+                    *ngIf="
+                      organisationDetailsForm.get(control.name)?.touched &&
+                      organisationDetailsForm
+                        .get(control.name)
+                        ?.hasError('required')
+                    ">
+                    {{ control.title }} is required.
+                  </div>
+                </div>
+              </span>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="actions">
+      <button
+        pButton
+        type="cancel"
+        class="button-outlined"
+        (click)="onCancelClicked()">
+        Cancel
+      </button>
+      <button pButton type="submit" class="button-filled" (click)="onSubmit()">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</section>

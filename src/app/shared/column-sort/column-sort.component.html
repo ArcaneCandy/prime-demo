@@ -1,0 +1,15 @@
+<div
+  class="flex align-items-center justify-content-center pr-2 cursor-pointer"
+  id="APPLICATION.COLUMN.SORT"
+  (click)="onColumnSort()">
+  @if (!direction) {
+    <i class="pi pi-sort-alt icon-color-active"></i>
+  } @else {
+    <i
+      [class]="
+        direction === sortingOrder.ASC
+          ? 'pi pi-sort-amount-up-alt icon-color-primary'
+          : 'pi pi-sort-amount-down icon-color-primary'
+      "></i>
+  }
+</div>

@@ -1,0 +1,64 @@
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  position="right"
+  styleClass="w-25rem"
+  showCloseIcon="false">
+  <ng-template pTemplate="header">
+    <div
+      class="flex flex-row justify-content-between align-items-center w-full">
+      <span class="text bold title my-3">{{
+        'APPLICATION.SIDEBAR.COLUMNS.TITLE' | translate
+      }}</span>
+      @if (shouldAllowReset) {
+        <p-menu
+          #columnsMenu
+          [model]="resetColumnsMenuItems"
+          [popup]="true"
+          styleClass="w-15rem"
+          [appendTo]="'body'" />
+        <p-button
+          (onClick)="columnsMenu.toggle($event)"
+          id="APPLICATION.SIDEBAR.COLUMNS.RESET_COLUMNS_LABEL"
+          [label]="
+            'APPLICATION.SIDEBAR.COLUMNS.RESET_COLUMNS_LABEL' | translate
+          "
+          styleClass="p-button-secondary text"
+          icon="pi pi-angle-down"
+          iconPos="right" />
+      }
+    </div>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div class="p2">
+      <p-orderList
+        [value]="columnData"
+        class="w-full md:w-30rem"
+        [dragdrop]="true"
+        [(selection)]="selectedColumns"
+        filterBy="header"
+        [filterPlaceholder]="
+          'APPLICATION.SIDEBAR.COLUMNS.FILTER_PLACEHOLDER' | translate
+        "
+        (onReorder)="onReorder(columnData)"
+        (onSelectionChange)="onSelectionChange($event)">
+        <ng-template let-column pTemplate="item">
+          <div class="flex justify-content-between pb-2">
+            <span>
+              <p-checkbox
+                [ngModel]="column.is_selected"
+                [binary]="true"
+                inputId="binary"></p-checkbox>
+              <span class="text pl-2">{{ column.header }}</span>
+            </span>
+            <i class="pi pi-arrows-alt"></i>
+          </div>
+        </ng-template>
+      </p-orderList>
+    </div>
+  </ng-template>
+</p-sidebar>
+<p-button
+  [label]="'APPLICATION.SIDEBAR.COLUMNS.TITLE' | translate"
+  id="APPLICATION.SIDEBAR.COLUMNS.CLOSE_BUTTON"
+  styleClass="p-button p-button-secondary text"
+  (click)="sidebarVisible = true"></p-button>

@@ -1,0 +1,17 @@
+<app-layout
+  title="Organisation"
+  (sidebarVisibilityChange)="onSidebarVisibilityChange($event)"
+  titleIcon="ph ph-cube-focus"></app-layout>
+<div [ngClass]="isSidebarVisible ? 'container' : 'container-without-sidebar'">
+  <div class="content">
+    <h3>Organisation</h3>
+    <p-tabView>
+      <p-tabPanel header="Organisation Details">
+        <app-organisation-details></app-organisation-details>
+      </p-tabPanel>
+      <p-tabPanel header="Payment Settings">
+        <app-payment-settings></app-payment-settings>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+$bw-sidebar-bg-color: #fcfcfc;
+$bw-sidebar-border-color: rgba(0, 0, 0, 0.08);
+$bw-breadcrumb-bg-color: #ffff;
+$bw-button-border-color: rgba(0, 0, 0, 0.2);
+$bw-container-border-color: #e0e0e0;
+$bw-table-header-color: #f8f9fa;
+$bw-sidebar-item-border-color: rgba(0, 0, 0, 0.12);
+$bw-sidebar-shaded-container-bg-color: #f5f5f5;
+$bw-checkbox-border-color: #ced4da;
+
+$bw-select-button-higlight: rgb(226, 226, 226);
+
+$bw-text-bold: #495057;
+$bw-text-title: #07081f;
+$bw-text-small: #6c757d;
+$bw-text-small-light: #9e9e9e;
+$bw-text-light: #777;
+$bw-text-dark: #000;
+$bw-text-normal-bold: #212121;
+$bw-button-text-color: #ffff;
+$bw-text-disabled: rgba(7, 8, 31, 0.5);
+$bw-error-message-color: red;
+$bw-title-color: #bdbdbd;
+
+$bw-color-primary: #4200ff;
+$bw-status-closed: #ffccbc;
+$bw-status-canceled: #fff7b2;
+$bw-status-pending: #ffe0b2;
+$bw-status-open: #b2dfdb;
+$bw-status-draft: #cce5fe;
+$bw-status-failed: #f99;
+$bw-status-unknown: #ccccfe;
+$bw-status-initiated: #e5fecc;
+$bw-status-historical: #e4e9f2;
+$bw-status-unassigned: #dfe9af;
+
+$bw-status-payment: #ccf;
+$bw-status-prepayment: #e5ccfe;
+$bw-status-correction: #fefecc;
+$bw-status-transaction: #ccfecc;
+$bw-status-bank-fee: #71beb2;
+$bw-status-misc: #deaceb;
+$bw-status-funds-transfer: #deaceb;
+
+$bw-status-incoming: #b2dfdb;
+$bw-status-outgoing: #ffccbc;
+
+$bw-status-activated: #ccfecc;
+$bw-status-deactivated: #d3d3d3;
+$bw-status-disconnected: #ffa07a;
+
+$dialog-border-radius: 1.25rem;
+$dialog-border-color: #ebeced;
+$dialog-header-background: #f8f9fa;
+
+$badge-background-color: #ff4e21;
+$chip-background-color: #eef1f7;
+$chip-view-all-background-color: #d2ddf1;
+
+$bw-action-button-bg: #ffffff;
+$bw-row-hover-color: #f5f5f5;
+$bw-selected-results-container-bg: #f5f5f5;
+$action-button-border-radius: 25%;
+$selection-indicator-border-radius: 25%;
+$selection-results-container-border-radius: 2%;
+
+$bw-accordion-header-background-color: #f7f7f7;
+$bw-accordion-positive-color: #22c55e;
+$bw-accordion-negative-color: #ff8780;
+$bw-first-marker-background-color: #dee2e6;
+$bw-second-marker-background-color: #22c55e;
+$bw-third-marker-background-color: #8e66ff;
+$bw-results-border-color: #dee2e6;
+$bw-marker-background-color: black;
+$bw-results-background: #fff;
+$bw-boxshadow-first-shade: rgba(0, 0, 0, 0.06);
+$bw-boxshadow-second-shade: rgba(0, 0, 0, 0.04);
+$bw-boxshadow-third-shade: rgba(0, 0, 0, 0.09);
+$bw-chart-button-border-color: #cfd1d5;
+$bw-chart-button-color: #606060;
+$bw-chart-container-shadow: gray;
+$bw-accordion-sub-value-border-color: #bfbfbf;
+$bw-accordion-sub-value-unselected-color: #f6f6f6;
+$bw-accordion-sub-value-currency-text-color: #616161;
+$bw-accordion-sub-value-header-text-color: #424242;
+
+$bw-selected-row-background-color: #dbdbdb;
+
+$bw-tablet-breakpoint: 48rem;
+
+$bw-todo-section-height: 80vh;
+
+@import 'primeicons/primeicons.css';

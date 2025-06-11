@@ -1,0 +1,20 @@
+<div
+  class="flex flex-row align-items-center justify-content-between text px-2 h-3rem selected-sum">
+  <div class="pl-2">
+    {{ 'APPLICATION.UTILITY.TOTAL_SUM_LABEL' | translate }}
+  </div>
+  <div class="flex flex-row pr-2 text-normal bold">
+    @for (
+      value of selectedCurrencyGroups;
+      let last = $last;
+      track value.currencyType
+    ) {
+      <span class="pl-2">
+        {{ value.items | sum: 'balance' | currency: value.items[0].currency }}
+      </span>
+      @if (!last) {
+        <span class="pl-2">|</span>
+      }
+    }
+  </div>
+</div>

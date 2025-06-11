@@ -1,0 +1,154 @@
+[
+  {
+    "groupName": "basic info",
+    "title": "Customer name",
+    "type": "text",
+    "name": "customerName"
+  },
+  {
+    "groupName": "basic info",
+    "title": "Customer ID",
+    "type": "text",
+    "name": "customerId"
+  },
+  {
+    "groupName": "basic info",
+    "title": "Corporate Entity ID",
+    "type": "text",
+    "name": "corporateEntityId"
+  },
+  {
+    "groupName": "basic info",
+    "title": "Business Email",
+    "type": "text",
+    "name": "businessEmail",
+    "validator": "Validators.email"
+  },
+  {
+    "groupName": "address info",
+    "title": "Line 1",
+    "type": "text",
+    "name": "lineOne"
+  },
+  {
+    "groupName": "address info",
+    "title": "Line 2",
+    "type": "text",
+    "name": "lineTwo"
+  },
+  {
+    "groupName": "address info",
+    "title": "City",
+    "type": "text",
+    "name": "city"
+  },
+  {
+    "groupName": "address info",
+    "title": "State",
+    "type": "text",
+    "name": "state"
+  },
+  {
+    "groupName": "address info",
+    "title": "Post Code",
+    "type": "text",
+    "name": "postCode"
+  },
+  {
+    "groupName": "address info",
+    "title": "Country",
+    "type": "text",
+    "name": "country"
+  },
+  {
+    "groupName": "primary contact",
+    "title": "Name",
+    "type": "text",
+    "name": "name"
+  },
+  {
+    "groupName": "primary contact",
+    "title": "Title",
+    "type": "text",
+    "name": "title"
+  },
+  {
+    "groupName": "primary contact",
+    "title": "Mail",
+    "type": "text",
+    "name": "mail",
+    "validator": "Validators.email"
+  },
+  {
+    "groupName": "primary contact",
+    "title": "Phone Number",
+    "type": "text",
+    "name": "phoneNumber"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Address Override",
+    "type": "checkbox",
+    "name": "addressOverride"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Address Line 1",
+    "type": "text",
+    "name": "addressLineOne"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Address Line 2",
+    "type": "text",
+    "name": "addressLineTwo"
+  },
+  {
+    "groupName": "billing info",
+    "title": "City",
+    "type": "text",
+    "name": "billingInfoCity"
+  },
+  {
+    "groupName": "billing info",
+    "title": "State",
+    "type": "text",
+    "name": "billingInfoState"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Post Code",
+    "type": "text",
+    "name": "billingInfoPostCode"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Country",
+    "type": "text",
+    "name": "billingInfoCountry"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Auto Notification",
+    "type": "checkbox",
+    "name": "autoNotification"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Frequency",
+    "type": "text",
+    "name": "frequency"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Tax Region",
+    "type": "text",
+    "name": "taxRegion"
+  },
+  {
+    "groupName": "billing info",
+    "title": "Govt. Registration ID",
+    "type": "text",
+    "name": "governmentRegistrationId"
+  }
+]

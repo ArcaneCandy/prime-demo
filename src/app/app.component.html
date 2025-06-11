@@ -1,0 +1,30 @@
+<router-outlet></router-outlet>
+<p-toast position="top-center" key="ms" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+    <div class="flex flex-column gap-1 w-full">
+      <div class="flex flex-column align-items-start" style="flex: 1">
+        <div class="flex align-items-center gap-2 text bold heavy">
+          {{ message.summary }}
+        </div>
+      </div>
+      <span class="flex flex-row gap-2">
+        @if (message.severity === 'error') {
+          <span class="text text-ellipsis">
+            {{ message.detail }}
+          </span>
+          <span
+            (click)="onCopyMessageClicked(message.detail)"
+            [pTooltip]="'APPLICATION.MESSAGES.COPY_ERROR' | translate"
+            tooltipPosition="bottom"
+            class="text cursor-pointer p-1 action-button">
+            <i class="pi pi-copy"></i>
+          </span>
+        } @else {
+          <span class="text">
+            {{ message.detail }}
+          </span>
+        }
+      </span>
+    </div>
+  </ng-template>
+</p-toast>

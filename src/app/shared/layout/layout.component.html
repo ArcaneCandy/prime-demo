@@ -1,0 +1,32 @@
+<div [ngClass]="isSidebarVisible ? 'layout' : 'layout-without-sidebar'">
+  <div class="header">
+    <span class="header-wrapper">
+      <span class="sidebar-menu-button">
+        <app-sidebar-menu
+          (sidebarVisibilityChange)="
+            onSidebarVisibilityChange($event)
+          "></app-sidebar-menu>
+      </span>
+      <div class="header-title-container">
+        <div class="text bold title">
+          <i [class]="titleIcon"></i>
+          <span class="header-title">{{ title }}</span>
+        </div>
+        <app-breadcrumbs></app-breadcrumbs>
+      </div>
+    </span>
+    <div class="notification-profile-container">
+      <p-avatar
+        icon="ph ph-bell"
+        shape="circle"
+        size="large"
+        styleClass="mr-2 text bold">
+      </p-avatar>
+      <p-avatar
+        image="../../../assets/images/avatar.png"
+        size="large"
+        shape="circle"></p-avatar>
+    </div>
+  </div>
+</div>
+<p-divider></p-divider>

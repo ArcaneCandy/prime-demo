@@ -1,0 +1,91 @@
+<section class="payment-settings-form">
+  <form [formGroup]="paymentSettingsForm">
+    <div class="form-group">
+      <div class="form-control">
+        <label
+          [for]="defaultCurrencyFormControl"
+          class="text-required-with-asterisk"
+          >Select Currency</label
+        >
+        <p-dropdown
+          styleClass="surface-200 border-none	p-0"
+          [style]="{ width: '100%' }"
+          [formControlName]="defaultCurrencyFormControl"
+          [options]="currencyCodes"
+          [filter]="true"
+          filterBy="name"
+          placeholder="Select a Currency"
+          optionLabel="name"></p-dropdown>
+        <div
+          class="p-error block form-text custom-invalid-feedback"
+          *ngIf="
+            paymentSettingsForm.get([defaultCurrencyFormControl])?.touched &&
+            paymentSettingsForm
+              .get([defaultCurrencyFormControl])
+              ?.hasError('required')
+          ">
+          Please select a currency.
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label
+          [for]="numberOfDaysDueInFormControl"
+          class="text-required-with-asterisk">
+          Number of Days Due In</label
+        >
+        <input
+          type="text"
+          pInputText
+          [formControlName]="numberOfDaysDueInFormControl"
+          id="numberOfDaysDueInFormControl" />
+        <div
+          class="p-error block form-text custom-invalid-feedback"
+          *ngIf="
+            paymentSettingsForm.get([numberOfDaysDueInFormControl])?.touched &&
+            paymentSettingsForm
+              .get([numberOfDaysDueInFormControl])
+              ?.hasError('required')
+          ">
+          This field is required.
+        </div>
+      </div>
+
+      <div class="form-control">
+        <label
+          [for]="minimumCreditAvailableFormControl"
+          class="text-required-with-asterisk"
+          >Minimum Credit Available</label
+        >
+        <input
+          type="text"
+          pInputText
+          [formControlName]="minimumCreditAvailableFormControl"
+          id="minimumCreditAvailableFormControl" />
+        <div
+          class="p-error block form-text custom-invalid-feedback"
+          *ngIf="
+            paymentSettingsForm.get([minimumCreditAvailableFormControl])
+              ?.touched &&
+            paymentSettingsForm
+              .get([minimumCreditAvailableFormControl])
+              .hasError('required')
+          ">
+          This field is required.
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button
+        pButton
+        type="cancel"
+        class="button-outlined"
+        (click)="onCancelClicked()">
+        Cancel
+      </button>
+      <button pButton type="submit" class="button-filled" (click)="onSubmit()">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</section>

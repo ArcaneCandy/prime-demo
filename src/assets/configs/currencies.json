@@ -1,0 +1,12 @@
+[
+  { "name": "USD" },
+  { "name": "EUR" },
+  { "name": "JPY" },
+  { "name": "GBP" },
+  { "name": "AUD" },
+  { "name": "CAD" },
+  { "name": "CHF" },
+  { "name": "CNY" },
+  { "name": "SEK" },
+  { "name": "NZD" }
+]

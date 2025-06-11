@@ -1,0 +1,27 @@
+[
+  {
+    "icon": "ph ph-vault",
+    "text": "Banks"
+  },
+  {
+    "icon": "ph ph-tote-simple",
+    "text": "Customers"
+  },
+  {
+    "icon": "ph ph-user-list",
+    "text": "Employees"
+  },
+  {
+    "icon": "ph ph-clipboard",
+    "text": "Accounting"
+  },
+  {
+    "icon": "ph ph-user-rectangle",
+    "text": "Profile"
+  },
+  {
+    "icon": "ph ph-cube-focus",
+    "text": "Organisation",
+    "navigatesTo": "/organisation"
+  }
+]
