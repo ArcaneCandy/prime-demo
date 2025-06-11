@@ -52,7 +52,9 @@ export class BankingComponent implements OnInit {
   public selectedTransactions: any[] = [];
   public loading: boolean = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateColumns(structuredClone(transactionColumnData));
+  }
 
   onSidebarVisibilityChange(event) {
     this.isSidebarVisible = event;
